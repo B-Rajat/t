@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Wenglish</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/wenglish-home.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation Bar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Wenglish</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="perfil.html">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+
+        <h1 class="my-4">Wenglish
+          <small>¡Colecciona tus palabras!</small>
+        </h1>
+
+        <!-- Translation box -->
+        <div id="translate-box" class="card text-white bg-dark">
+          <h5 class="card-header">Traduce una palabra en español</h5>
+          <div class="card-body">
+            <div class="input-group my-2">
+              <input id="translate-input" type="text" class="form-control" placeholder="Escribe aquí tu palabra...">
+              <span class="input-group-btn">
+                <button class="translate-button btn btn-success" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!--Translation result div -->
+        <div id="translation-result" class="card text-white bg-dark collapse">
+          <div class="card-body">
+            <ul>
+              <div id="translation-result-text" class="card-text">
+              </div>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Blog Post -->
+        <div id="found-topics-list">
+          <h1 class="my-4">
+              <small>Algunos tópicos recientes</small>
+          </h1>
+          <div class = "recentTopics">
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Login Widget -->
+
+        <div id="login-box" class="card my-4">
+          <h5 class="card-header">Login</h5>
+          <div class="card-body text-right">
+            <form id="login-box-form">
+              <div class="form-group my-2">
+                <input id="login-form-inputemail" type="text" class="form-control" placeholder="Correo electrónico">
+              </div>
+              <div class="form-group my-2">
+                <input id="login-form-inputpassword" type="password" class="form-control" placeholder="Contraseña">
+              </div>
+              <button type="button" class="create-user btn btn-info"> Registrar usuario </button>
+              <button type="submit" class="login-btn btn btn-success">Login</button>
+            </form>
+          </div>
+        </div>
+        <div id="create-user-box" class="card collapse">
+          <h4 class="card-header">Crear usuario</h4>
+          <div class="card-body text-right">
+            <form id="creat-user-form">
+              <div class="form-group my-2">
+                <input id="create-user-inputemail" type="text" class="form-control" placeholder="Correo electronico">
+              </div>
+              <div class="form-group my-2">
+                <input id="create-user-inputpassword" type="password" class="form-control" placeholder="Contraseña">
+              </div>
+              <div class="form-group my-2">
+                <input id="create-user-inputpasswordconfirm" type="password" class="form-control" placeholder="Confirmar Contraseña">
+              </div>
+              <button type="submit" class="create-user-submit btn btn-success">Crear usuario</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- If user is logged show its info -->
+        <div id="user-info-box" class="card my-4" style="display:none;">
+          <h5 id="user-info-email" class="card-header">Información de usuario</h5>
+          <div class="card-body">
+            <div class="my-2">
+              <span class="font-italic">Since:</span> <span id="user-info-since">Hace mucho</span>
+            </div>
+            <div class="my-2">
+              <a href="/perfil.html"> Topics del usuario </a>
+            </div>
+            <div class="my-2">
+              <a href="#" data-toggle="modal" data-target="#createTopicModal"> Crear Topic </a>
+            </div>
+            <button id="user-info-logout" class="btn btn-secondary float-right"> Log out </button>
+          </div>
+        </div>
+
+        <!-- Modal para creacion de topics -->
+        <div class="modal fade" id="createTopicModal" tabindex="-1" role="dialog" aria-labelledby="creatTopicModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="creatTopicModalLabel">Creación Topic</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form id="create-topic-form">
+              <div class="modal-body">
+                <div id="create-topic-err"></div>
+                <div class="form-group my-2">
+                  <label for="create-topic-topicname">Nombre del Topic: </label>
+                  <input id="create-topic-topicname" type="text" class="form-control form-control-lg" placeholder="Ej. Naturaleza...">
+                </div>
+                <div class="form-group my-2">
+                  <label for="create-topic-words"> Escribe las palabras iniciales: </label>
+                  <textarea id="create-topic-words" class="form-control" rows="2" placeholder="Palabras separadas por comas. Ej: Tree, Ground, Mountain, etc..."></textarea>
+                  <small id="create-topic-help" class="form-text text-muted">Palabras separadas por comas. Ej: Tree, Ground, Mountain, etc...</small>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Crear Topic</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+        <!-- Search topics Widget -->
+        <div id="search-topic-box" class="card my-4">
+          <h5 class="card-header">Buscar Topics</h5>
+          <div class="card-body text-right">
+            <div class="input-group my-2">
+              <input id="search-input" type="text" class="form-control" placeholder="Keyword">
+            </div>
+            <button href="#" type="submit" class="search-topic-btn btn btn-success">Buscar</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="footer py-3 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/wenglish-home.js"></script>
+
+</body>
+
+</html>

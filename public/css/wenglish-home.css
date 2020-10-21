@@ -1,0 +1,37 @@
+/*!
+ * Start Bootstrap - Blog Home (https://startbootstrap.com/template-overviews/blog-home)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-home/blob/master/LICENSE)
+ */
+body {
+  padding-top: 56px;
+  padding-bottom: 56px;
+  position: relative;
+}
+
+.translationResultSection {
+	margin-top: 20px;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#contactOnAbout h5{
+	background-color : #daefd0;
+}
+
+#contactOnAbout .card-body {
+	background-color: #fcfff4;
+}
+
+/*
+#wenglishInfo h5{
+	background-color : #daefd0;
+}
+
+#wenglishInfo .card-body {
+	background-color : #f5fff4;
+}*/

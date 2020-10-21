@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Wenglish - Perfil usuario</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/wenglish-perfil.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation Bar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Wenglish</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="perfil.html">Perfil</a>
+            <span class="sr-only">(current)</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+
+        <h1 class="my-4">Lista de tus Topics
+        </h1>
+
+        <!-- Blog Post -->
+        <div id="found-topics-list">
+
+        </div>
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- If user is logged show its info -->
+        <div id="user-info-box" class="card my-4" style="display:none;">
+          <h5 id="user-info-email" class="card-header">Información de usuario</h5>
+          <div class="card-body">
+            <div class="my-2">
+              <span class="font-italic">Since:</span> <span id="user-info-since">Hace mucho</span>
+            </div>
+            <div class="my-2">
+              <a href="index.html"> Home </a>
+            </div>
+            <div class="my-2">
+              <a href="#" data-toggle="modal" data-target="#createTopicModal"> Crear Topic </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Translation box -->
+        <div id="translate-box" class="card mt-4 text-white bg-dark">
+          <h5 class="card-header">Traductor</h5>
+          <div class="card-body">
+            <div class="input-group my-2">
+              <input id="translate-input" type="text" class="form-control" placeholder="Escribe aquí tu palabra...">
+              <span class="input-group-btn">
+                <button class="translate-button btn btn-success" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--Translation result div -->
+        <div id="translation-result" class="card text-white bg-dark collapse">
+          <div class="card-body">
+            <ul>
+              <div id="translation-result-text" class="card-text">
+              </div>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Modal para creacion de topics -->
+        <div class="modal fade" id="createTopicModal" tabindex="-1" role="dialog" aria-labelledby="creatTopicModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="creatTopicModalLabel">Creación Topic</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form id="create-topic-form">
+              <div class="modal-body">
+                <div id="create-topic-err"></div>
+                <div class="form-group my-2">
+                  <label for="create-topic-topicname">Nombre del Topic: </label>
+                  <input id="create-topic-topicname" type="text" class="form-control form-control-lg" placeholder="Ej. Naturaleza...">
+                </div>
+                <div class="form-group my-2">
+                  <label for="create-topic-words"> Escribe las palabras iniciales: </label>
+                  <textarea id="create-topic-words" class="form-control" rows="2" placeholder="Palabras separadas por comas. Ej: Tree, Ground, Mountain, etc..."></textarea>
+                  <small id="create-topic-help" class="form-text text-muted">Palabras separadas por comas. Ej: Tree, Ground, Mountain, etc...</small>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Crear Topic</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="editNameModal" tabindex="-1" role="dialog" aria-labelledby="editNameModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editNameModalLabel">Edición Topic</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="changeName-topic-form">
+            <div class="modal-body">
+              <div id="edit-topic-err"></div>
+              <div class="form-group my-2">
+                <label for="changeName-topicname">Nuevo nombre del tópico: </label>
+                <input id="changeName-topicname" type="text" class="form-control form-control-lg" placeholder="Ej. nature...">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button id="changeName-confirm" type="button" class="btn btn-primary">Aceptar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="addWordModal" tabindex="-1" role="dialog" aria-labelledby="addWordModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addWordModalLabel">Agregar palabra al tópico</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="addWord-topic-form">
+            <div class="modal-body">
+              <div id="add-word-response"></div>
+              <div class="form-group my-2">
+                <label for="addWord-newWord">Palabra a agregar: </label>
+                <input id="addWord-newWord" type="text" class="form-control form-control-lg" placeholder="Ej. tree...">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button id="addWord-confirm" type="button" class="btn btn-primary">Aceptar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="deleteWordModal" tabindex="-1" role="dialog" aria-labelledby="deleteWordModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteWordModalLabel">Elimiar palabra del tópico</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="deleteWord-topic-form">
+            <div class="modal-body">
+              <div id="delete-word-response"></div>
+              <div class="form-group my-2">
+                <label for="deleteWord-newWord">Palabra a eliminar: </label>
+                <input id="deleteWord-newWord" type="text" class="form-control form-control-lg" placeholder="Ej. tree...">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button id="deleteWord-confirm" type="button" class="btn btn-primary">Aceptar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="deleteTopicModal" tabindex="-1" role="dialog" aria-labelledby="deleteTopicModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteTopicModalLabel">Eliminar Topic</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="delete-topic-response"></div>
+          Seguro de eliminar este topic?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button id="delete-topic-confirm" type="button" class="btn btn-primary">Eliminar Topic</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="footer py-3 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/wenglish-home.js"></script>
+
+</body>
+
+</html>
